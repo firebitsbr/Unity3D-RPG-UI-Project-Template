@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HealthManaController : MonoBehaviour {
 
-    public PlayerStats PlayerStats;
+    public PlayerObject PlayerObject;
 
     public Image HealthBar;
     public Image ResourcesBar;
@@ -17,18 +17,21 @@ public class HealthManaController : MonoBehaviour {
 
 	void Start () {
 
+        ResourcesBar.color = PlayerObject.PlayerStats.ResourcesToColor();
+
     }
 	
 	void Update () {
 
-        HealthValue.text = "Health : " + PlayerStats.CurrentHealth + " / " + PlayerStats.MaxHealth;
-        ResourcesValue.text = "Resources : " + PlayerStats.CurrentResources + " / " + PlayerStats.MaxResouces;
+        HealthValue.text = "Health : " + PlayerObject.PlayerStats.Health + " / " + PlayerObject.PlayerStats.MaxHealth;
+        ResourcesValue.text = PlayerObject.PlayerStats.ResourcesType.ToString() + " : " + PlayerObject.PlayerStats.Resource + " / " + PlayerObject.PlayerStats.MaxResource;
 
-        Debug.Log(PlayerStats.CurrentHealth);
-        Debug.Log(PlayerStats.MaxHealth);
+        var HealthFrac = Mathf.Clamp01(PlayerObject.PlayerStats.Health /(float)PlayerObject.PlayerStats.MaxHealth);
+        var ResourceFrac = Mathf.Clamp01(PlayerObject.PlayerStats.Resource /(float)PlayerObject.PlayerStats.MaxResource);
 
-        HealthBar.GetComponent<RectTransform>().localScale = new Vector3( Mathf.Clamp01(PlayerStats.CurrentHealth / PlayerStats.MaxHealth), 1, 1);
-        ResourcesBar.GetComponent<RectTransform>().localScale = new Vector3( Mathf.Clamp01(PlayerStats.CurrentResources / PlayerStats.MaxResouces), 1, 1);
+
+        HealthBar.GetComponent<RectTransform>().localScale = new Vector3(HealthFrac, 1, 1);
+        ResourcesBar.GetComponent<RectTransform>().localScale = new Vector3(ResourceFrac, 1, 1);
 
     }
 }

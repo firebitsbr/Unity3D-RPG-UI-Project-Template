@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BagManager : MonoBehaviour {
 
-    public List<ConsumableItem> BagItems;
+    public PlayerObject PlayerObject;
 
     public GameObject ItemPrefab;
 
@@ -17,17 +17,17 @@ public class BagManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        ShowItemList(BagItems);
+        ShowItemList(PlayerObject.Items);
 
         ItemsSearch.onValueChanged.AddListener((query) =>
         {
             if(string.IsNullOrEmpty(query.Trim()))
             {
-                ShowItemList(BagItems);
+                ShowItemList(PlayerObject.Items);
                 return;
             }
 
-            ShowItemList(BagItems.Where(x => x.Name.Trim().ToLower().Contains(query.ToLower())).ToList());
+            ShowItemList(PlayerObject.Items.Where(x => x.Name.Trim().ToLower().Contains(query.ToLower())).ToList());
 
         });
 
@@ -46,11 +46,7 @@ public class BagManager : MonoBehaviour {
             var tmp = Instantiate(ItemPrefab, BagContainer);
 
             tmp.transform.GetChild(0).GetComponent<ItemController>().ConsumableItemData = item;
-            tmp.transform.GetChild(0).GetComponent<ItemController>().SetItemSettings(() =>
-            {
-                Destroy(tmp);
-                BagItems.Remove(item);
-            });
+            tmp.transform.GetChild(0).GetComponent<ItemController>().Bag = this;
         }
     }
 

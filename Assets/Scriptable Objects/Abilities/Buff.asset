@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Buff
   Description: Buffs the unit's stats
   CoolDown: 4
+  Cost: 20

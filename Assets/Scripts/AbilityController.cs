@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class AbilityController : MonoBehaviour {
 
+    public AbilityManager AbilityManager;
+
     public Ability AbilityData;
 
     Image Icon;
@@ -24,11 +26,24 @@ public class AbilityController : MonoBehaviour {
 
         AbilityButton.onClick.AddListener(() =>
         {
-            AbilityButton.interactable = false;
+            if(AbilityManager.PlayerObject.PlayerStats.Resource >= AbilityData.Cost)
+            {
+                AbilityManager.PlayerObject.PlayerStats.Resource -= AbilityData.Cost;
 
-            AbilityData.OnUse();
+                AbilityButton.interactable = false;
+                AbilityData.OnUse();
+            
+                StartCoroutine(setOnCoolDown());
+            }
+            else
+            {
+                var tmp = ScriptableObject.CreateInstance<AlertText>();
+                tmp.AlertDuration = 2;
+                tmp.AlertTextType = AlertTextType.Info;
+                tmp.AlertMessage = "Not Enough " + AbilityManager.PlayerObject.PlayerStats.ResourcesType.ToString();
 
-            StartCoroutine(setOnCoolDown());
+                AlertManager.AddAlertToQueue(tmp);
+            }
         });
 	}
 

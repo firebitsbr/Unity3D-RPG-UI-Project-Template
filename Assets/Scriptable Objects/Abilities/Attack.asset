@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Attack
   Description: Attacks Enemy !
   CoolDown: 2
+  Cost: 10

@@ -9,6 +9,7 @@ public class Ability : ScriptableObject {
     public string Name;
     public string Description;
     public float CoolDown;
+    public int Cost;
 
     public virtual void OnUse()
     {

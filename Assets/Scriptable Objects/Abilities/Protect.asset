@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Shield
   Description: Adds armor to target
   CoolDown: 10
+  Cost: 30

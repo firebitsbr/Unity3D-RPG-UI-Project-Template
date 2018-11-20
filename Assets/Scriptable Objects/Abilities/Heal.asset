@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: Heal
   Description: Heals unit's health
   CoolDown: 8
+  Cost: 40

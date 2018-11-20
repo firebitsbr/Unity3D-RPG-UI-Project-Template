@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class ItemController : MonoBehaviour {
 
+    public BagManager Bag;
+
     public ConsumableItem ConsumableItemData;
 
     Image Icon;
     Button ItemButton;
-    Action OnRemove;
+
 
     // Use this for initialization
     void Start()
@@ -27,30 +29,12 @@ public class ItemController : MonoBehaviour {
 
         ItemButton.onClick.AddListener(() =>
         {
-
             ConsumableItemData.Consume();
-
+            Bag.PlayerObject.Items.Remove(ConsumableItemData);
             Destroy(this.transform.parent.gameObject);
 
         });
     }
 
-    public void SetItemSettings(Action OnRemove)
-    {
-        this.OnRemove = OnRemove;
-        ItemButton = GetComponent<Button>();
-        Icon = ItemButton.image;
-
-        Icon.sprite = ConsumableItemData.Icon;
-
-        ItemButton.onClick.AddListener(() =>
-        {
-
-            ConsumableItemData.Consume();
-
-            OnRemove.Invoke();
-
-        });
-    }
 
 }
