@@ -20,7 +20,19 @@ Here's a GIF showing the project :
     - Basic health and resources bar
 
 Just making this in case somebody wants a base for a UI system of just to get an idea about where and how to start
+# v1.1 :
+- Camera Features :
+  - Camera Rotation with Mouse
+  - Look around by presseing LeftCtrl + Mouve Mouse
 
+- Player Control :
+  - Basic Mouvement with arrows and WQSD
+  - Jump with Space
+- Resources :
+  - Adding multiple types of resources ([Mana , Rage ,Energy , Wind] so far)
+  - Alert message when not enough resources for ability ("Not Enough Mana" , "Not Enough Wind" , etc .....) 
+
+If you have any questions or ideas feel free to reach out with discord ! Profile ID : Bloodthirst#9565
 
 License
 ----
