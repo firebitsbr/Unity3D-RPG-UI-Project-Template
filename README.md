@@ -3,10 +3,15 @@
 A simple Unity3D project with the essencial components to start a basic UI system
 
 Here's a GIF showing the project : (v1 preview)
+# Camera Scroll :
 ![scroll](https://user-images.githubusercontent.com/25708161/49114435-7f549300-f298-11e8-8904-a5b577323a10.gif)
+# Camera Control : 
 ![camera](https://user-images.githubusercontent.com/25708161/49114436-7f549300-f298-11e8-852b-9f936b1f9cf2.gif)
+# Basic Movement + Jump
 ![jump](https://user-images.githubusercontent.com/25708161/49114437-7fed2980-f298-11e8-9319-b4e4bf85ef50.gif)
+# Bag system
 ![bags](https://user-images.githubusercontent.com/25708161/49114438-7fed2980-f298-11e8-8afd-4fa50e24f457.gif)
+# Abilities system
 ![abiliteis](https://user-images.githubusercontent.com/25708161/49114439-8085c000-f298-11e8-871e-79005294ee62.gif)
 
 # Features :
