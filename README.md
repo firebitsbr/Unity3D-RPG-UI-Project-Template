@@ -1,6 +1,6 @@
 # Unity3D : Simple RPG UI Project
 
-A simple Unity3D project with the essencial components to start a basic UI system
+A simple Unity3D project with the essencial components to start a basic UI system and game interactions
 
 Here's a GIF showing the project :
 # Camera Scroll :
