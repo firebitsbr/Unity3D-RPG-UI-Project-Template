@@ -2,7 +2,7 @@
 
 A simple Unity3D project with the essencial components to start a basic UI system
 
-Here's a GIF showing the project : (v1 preview)
+Here's a GIF showing the project :
 # Camera Scroll :
 ![scroll](https://user-images.githubusercontent.com/25708161/49114435-7f549300-f298-11e8-8904-a5b577323a10.gif)
 # Camera Control : 
@@ -29,7 +29,7 @@ Here's a GIF showing the project : (v1 preview)
     - Basic health and resources bar
 
 Just making this in case somebody wants a base for a UI system of just to get an idea about where and how to start
-# v1.1 : (Preview GIF soon :p)
+# v1.1 :
 - Camera Features :
   - Camera Rotation with Mouse
   - Look around by presseing LeftCtrl + Mouve Mouse
