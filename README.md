@@ -32,7 +32,7 @@ Just making this in case somebody wants a base for a UI system of just to get an
   - Adding multiple types of resources ([Mana , Rage ,Energy , Wind] so far)
   - Alert message when not enough resources for ability ("Not Enough Mana" , "Not Enough Wind" , etc .....) 
 
-If you have any questions or ideas feel free to reach out with discord ! Profile ID : Bloodthirst#9565
+If you have any questions or ideas feel free to reach out on discord ! Profile ID : Bloodthirst#9565
 
 License
 ----
