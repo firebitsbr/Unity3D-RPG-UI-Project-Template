@@ -2,7 +2,7 @@
 
 A simple Unity3D project with the essencial components to start a basic UI system
 
-Here's a GIF showing the project :
+Here's a GIF showing the project : (v1 preview)
 ![gif](https://user-images.githubusercontent.com/25708161/48676145-d05edb80-eb62-11e8-9645-b96267a265b5.gif)
 
 # Features :
