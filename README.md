@@ -20,7 +20,7 @@ Here's a GIF showing the project :
     - Basic health and resources bar
 
 Just making this in case somebody wants a base for a UI system of just to get an idea about where and how to start
-# v1.1 :
+# v1.1 : (Preview GIF soon :p)
 - Camera Features :
   - Camera Rotation with Mouse
   - Look around by presseing LeftCtrl + Mouve Mouse
