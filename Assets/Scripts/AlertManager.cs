@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AlertManager : MonoBehaviour {
 
-    public PlayerObject PlayerObject;
+    public PlayerClass PlayerClass;
     public static Queue<AlertText> Alerts = new Queue<AlertText>();
     public GameObject AlertPrefab;
 

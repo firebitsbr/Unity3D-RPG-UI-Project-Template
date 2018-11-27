@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class BagManager : MonoBehaviour {
 
-    public PlayerObject PlayerObject;
+    public BagsManager Manager;
+
+    public Bag Bag;
 
     public GameObject ItemPrefab;
 
@@ -17,17 +19,17 @@ public class BagManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        ShowItemList(PlayerObject.Items);
+        ShowItemList(Bag.itemsList);
 
         ItemsSearch.onValueChanged.AddListener((query) =>
         {
             if(string.IsNullOrEmpty(query.Trim()))
             {
-                ShowItemList(PlayerObject.Items);
+                ShowItemList(Bag.itemsList);
                 return;
             }
 
-            ShowItemList(PlayerObject.Items.Where(x => x.Name.Trim().ToLower().Contains(query.ToLower())).ToList());
+            ShowItemList(Bag.itemsList.Where(x => x.Name.Trim().ToLower().Contains(query.ToLower())).ToList());
 
         });
 
@@ -46,7 +48,7 @@ public class BagManager : MonoBehaviour {
             var tmp = Instantiate(ItemPrefab, BagContainer);
 
             tmp.transform.GetChild(0).GetComponent<ItemController>().ConsumableItemData = item;
-            tmp.transform.GetChild(0).GetComponent<ItemController>().Bag = this;
+            tmp.transform.GetChild(0).GetComponent<ItemController>().Manager = this;
         }
     }
 

@@ -8,11 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40989d3c099f73a4d820f681e056b623, type: 3}
-  m_Name: StatsObject
+  m_Script: {fileID: 11500000, guid: 90b0cc2325928d246b6e6a29b9b9008b, type: 3}
+  m_Name: Bag 2
   m_EditorClassIdentifier: 
-  Health: 293
-  MaxHealth: 300
-  Resource: 29
-  MaxResource: 120
-  ResourcesType: 3
+  Capacity: 15
+  itemsList:
+  - {fileID: 11400000, guid: 21232fbe3637bb34296e9cd931dcfcee, type: 2}

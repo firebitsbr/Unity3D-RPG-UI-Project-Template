@@ -1,6 +1,5 @@
-﻿using System;
+﻿
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,9 +25,9 @@ public class AbilityController : MonoBehaviour {
 
         AbilityButton.onClick.AddListener(() =>
         {
-            if(AbilityManager.PlayerObject.PlayerStats.Resource >= AbilityData.Cost)
+            if(AbilityManager.PlayerClass.PlayerObject.PlayerStats.Resource >= AbilityData.Cost)
             {
-                AbilityManager.PlayerObject.PlayerStats.Resource -= AbilityData.Cost;
+                AbilityManager.PlayerClass.PlayerObject.PlayerStats.Resource -= AbilityData.Cost;
 
                 AbilityButton.interactable = false;
                 AbilityData.OnUse();
@@ -40,7 +39,7 @@ public class AbilityController : MonoBehaviour {
                 var tmp = ScriptableObject.CreateInstance<AlertText>();
                 tmp.AlertDuration = 2;
                 tmp.AlertTextType = AlertTextType.Info;
-                tmp.AlertMessage = "Not Enough " + AbilityManager.PlayerObject.PlayerStats.ResourcesType.ToString();
+                tmp.AlertMessage = "Not Enough " + AbilityManager.PlayerClass.PlayerObject.PlayerStats.ResourcesType.ToString();
 
                 AlertManager.AddAlertToQueue(tmp);
             }

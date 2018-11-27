@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c57b86e79b83c74dac35c5c157f266b, type: 3}
+  m_Name: PlayerObject
+  m_EditorClassIdentifier: 
+  Abilities:
+  - {fileID: 11400000, guid: 66e2e12450977ba4ba688b2a53ffc3d1, type: 2}
+  - {fileID: 11400000, guid: e04f8b7ed577c80489808ac6a2b547d4, type: 2}
+  - {fileID: 11400000, guid: 83efdf5dfdfe6794caa9ec238d5e526c, type: 2}
+  - {fileID: 11400000, guid: c098a3b626c6efe4eb85bd35ae094d6b, type: 2}
+  PlayerStats: {fileID: 11400000, guid: 6efac2c87295a244aaa71fa70437f159, type: 2}
+  Bags:
+  - {fileID: 11400000, guid: af0e53a281f8d8f4ba4d6359d55be0f6, type: 2}
+  - {fileID: 11400000, guid: bd81abad2209a2b42bb5914cb4f81e33, type: 2}

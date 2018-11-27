@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class AbilityManager : MonoBehaviour {
 
-    public PlayerObject PlayerObject;
+    public PlayerClass PlayerClass;
     public GameObject AbilityPrefab;
 
 	// Use this for initialization
 	void Start () {
 		
-        foreach(var ability in PlayerObject.Abilities)
+        foreach(var ability in PlayerClass.PlayerObject.Abilities)
         {
             var tmp = Instantiate(AbilityPrefab, this.transform);
             var AbController = tmp.transform.GetChild(0).GetComponent<AbilityController>();

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ItemController : MonoBehaviour {
 
-    public BagManager Bag;
+    public BagManager Manager;
 
     public ConsumableItem ConsumableItemData;
 
@@ -30,7 +30,7 @@ public class ItemController : MonoBehaviour {
         ItemButton.onClick.AddListener(() =>
         {
             ConsumableItemData.Consume();
-            Bag.PlayerObject.Items.Remove(ConsumableItemData);
+            Manager.Bag.itemsList.Remove(ConsumableItemData);
             Destroy(this.transform.parent.gameObject);
 
         });
