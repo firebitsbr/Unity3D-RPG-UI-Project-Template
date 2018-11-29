@@ -23,18 +23,27 @@ public class ItemController : MonoBehaviour {
     public void SetItemSettings()
     {
         ItemButton = GetComponent<Button>();
-        Icon = ItemButton.image;
 
-        Icon.sprite = ConsumableItemData.Icon;
+        if (ConsumableItemData == null)
+        {
+            ItemButton.image.color = Color.blue;
+            return;
+        }
+
+       
+        ItemButton.image.sprite = ConsumableItemData.Icon;
+       
 
         ItemButton.onClick.AddListener(() =>
         {
             ConsumableItemData.Consume();
             Manager.Bag.itemsList.Remove(ConsumableItemData);
-            Destroy(this.transform.parent.gameObject);
+            Manager.RefreshBag();
 
         });
     }
+
+    
 
 
 }

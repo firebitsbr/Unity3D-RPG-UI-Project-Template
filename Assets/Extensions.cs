@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class MouseDeltaUtils {
+public static class Extensions {
 
     static Vector3 LastMousePos = Input.mousePosition;
 

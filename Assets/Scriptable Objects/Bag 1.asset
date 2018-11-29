@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Name: Bag 1
   m_EditorClassIdentifier: 
   Capacity: 15
-  itemsList:
-  - {fileID: 11400000, guid: 3291534f2a97ca14d9ab3dff03f655ca, type: 2}
-  - {fileID: 11400000, guid: 0990ac9827f6c824caa7f044f31d9ae0, type: 2}
-  - {fileID: 11400000, guid: 21232fbe3637bb34296e9cd931dcfcee, type: 2}
+  itemsList: []

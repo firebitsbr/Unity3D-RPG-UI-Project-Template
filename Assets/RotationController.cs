@@ -2,29 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationController : MonoBehaviour {
+public class RotationController : MonoBehaviour
+{
 
     Rigidbody _rb;
-    [Range(0 , 5)]
+    [Range(0, 5)]
     public float RotationSpeed;
 
+    MouseInputWrapper _MouseInputWrapper;
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         _rb = GetComponent<Rigidbody>();
+        _MouseInputWrapper = GetComponent<MouseInputWrapper>();
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        if(!Input.GetKey(KeyCode.LeftControl))
-        { 
+    // Update is called once per frame
+    void Update()
+    {
 
-            var CurrentRotation = _rb.rotation.eulerAngles;
+        //If left Ctrl or right mouse button is press dont do anything
+        if (Input.GetKey(KeyCode.LeftControl))
+            return;
 
-            CurrentRotation.y += RotationSpeed * this.MouseDelta().x;
-            _rb.rotation = Quaternion.Euler(CurrentRotation);
+        if (Input.GetMouseButton(1))
+            return;
 
-        }
+
+        //Else rotate Player
+        var CurrentRotation = _rb.rotation.eulerAngles;
+
+        CurrentRotation.y += _MouseInputWrapper.Delta.x;
+        _rb.rotation = Quaternion.Euler(CurrentRotation);
+
+
+
     }
 
 

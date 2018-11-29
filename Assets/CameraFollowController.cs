@@ -2,70 +2,71 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
-public class CameraFollowController : MonoBehaviour {
+public class CameraFollowController : MonoBehaviour
+{
 
     public Transform CameraTarget;
 
-    Vector3 LastMousePos;
+    public Vector3 OffsetVector; 
 
-    [Range(1 , 10)]
-    public float ForwardOffset = 1;
+    public float DistanceFromPlayer = 5f;
 
-    [Range(1, 10)]
-    public float UpOffset = 1;
-
-    [Range(1 , 5)]
+    [Range(1, 20)]
     public float ScrollSpeed = 2f;
 
-	// Use this for initialization
-	void Start () {
+    MouseInputWrapper _MouseInputWrapper;
 
-        LastMousePos = Input.mousePosition;
+    // Use this for initialization
+    void Start()
+    {
+
+        _MouseInputWrapper = CameraTarget.gameObject.GetComponent<MouseInputWrapper>();
+
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        ForwardOffset -= Input.GetAxis("Mouse ScrollWheel") * ScrollSpeed;
-        UpOffset -= Input.GetAxis("Mouse ScrollWheel") * ScrollSpeed;
+    // Update is called once per frame
+    void Update()
+    {
+        //If Ctrl is pressed , dont move the camera
+        if (Input.GetKey(KeyCode.LeftControl))
+            return;
 
-        var CameraOffset = (-1 * ForwardOffset * CameraTarget.transform.forward) + (Vector3.up * UpOffset);
+        //Zoom in/out with scroll wheel
+        var Scroll = Input.GetAxis("Mouse ScrollWheel");
+        DistanceFromPlayer -= Scroll * ScrollSpeed;
+        //Direction Vector Towards Player
+        var VectorTowardsPlayer = transform.localPosition;
 
-        var Rotation = MouseDelta();
 
-        if (!Input.GetKey(KeyCode.LeftControl))
+        //If right mouse button is pressed , dont move the camera
+        if (Input.GetMouseButton(1))
         {
+            transform.RotateAround(CameraTarget.position, CameraTarget.right, -_MouseInputWrapper.Delta.y);
+            transform.RotateAround(CameraTarget.position, CameraTarget.up, _MouseInputWrapper.Delta.x);           
+            transform.LookAt(CameraTarget.position);
+        }
 
 
-            transform.position = CameraTarget.position + CameraOffset;
-            //transform.RotateAround(CameraTarget.position, CameraTarget.right, Rotation.y);
+        //On right mouse button release , reset the camera position
+        if (Input.GetMouseButtonUp(1))
+        {
+            transform.localRotation = Quaternion.identity;
+            transform.localPosition = OffsetVector * (DistanceFromPlayer + 1);
+
 
         }
 
-        else
-        {
-            
 
-            transform.RotateAround(CameraTarget.position, CameraTarget.up, Rotation.x );
-            transform.RotateAround(CameraTarget.position, CameraTarget.right, Rotation.y );
-            
-        }
-
+        transform.RotateAround(CameraTarget.position, CameraTarget.right, -_MouseInputWrapper.Delta.y);
+        KeepDistance();
         transform.LookAt(CameraTarget.position);
 
+
     }
 
-    
-
-    public Vector3 MouseDelta()
+    void KeepDistance()
     {
-        var Delta = Input.mousePosition - LastMousePos;
-
-        LastMousePos = Input.mousePosition;
-
-        return Delta;
+        transform.localPosition = (transform.localPosition.normalized) * (OffsetVector.magnitude + DistanceFromPlayer);
     }
-
 
 }

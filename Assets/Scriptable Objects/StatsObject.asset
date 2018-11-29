@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 293
   MaxHealth: 300
-  Resource: 29
+  Resource: 0
   MaxResource: 120
   ResourcesType: 3
