@@ -48,7 +48,7 @@ public class CameraFollowController : MonoBehaviour
 
 
         //On right mouse button release , reset the camera position
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.LeftControl))
         {
             transform.localRotation = Quaternion.identity;
             transform.localPosition = OffsetVector * (DistanceFromPlayer + 1);

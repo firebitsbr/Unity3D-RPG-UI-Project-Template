@@ -26,7 +26,6 @@ public class ItemController : MonoBehaviour {
 
         if (ConsumableItemData == null)
         {
-            ItemButton.image.color = Color.blue;
             return;
         }
 

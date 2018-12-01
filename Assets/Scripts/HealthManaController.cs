@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class HealthManaController : MonoBehaviour {
 
+    public RawImage PlayerPicture;
+
     public PlayerClass PlayerClass;
 
     public Image HealthBar;
@@ -16,6 +18,8 @@ public class HealthManaController : MonoBehaviour {
 	void Start () {
 
         ResourcesBar.color = PlayerClass.PlayerObject.PlayerStats.ResourcesToColor();
+        PlayerPicture.texture = PlayerClass.GetComponentInChildren<PlayerProfilePicture>().ProfilePicture;
+
 
     }
 	
